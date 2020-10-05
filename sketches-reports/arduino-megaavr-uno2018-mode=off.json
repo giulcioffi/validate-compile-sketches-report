@@ -1,0 +1,421 @@
+{
+  "commit_hash": "b6fe0204745e6a388973f552e992f8f9b8461710",
+  "commit_url": "https://github.com/giulcioffi/ArduinoCore-megaavr/commit/b6fe0204745e6a388973f552e992f8f9b8461710",
+  "boards": [
+    {
+      "board": "arduino:megaavr:uno2018:mode=off",
+      "sketches": [
+        {
+          "name": "libraries/Wire/examples/SFRRanger_reader",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 5433,
+                "relative": 11.17
+              },
+              "previous": {
+                "absolute": 5433,
+                "relative": 11.17
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 484,
+                "relative": 7.88
+              },
+              "previous": {
+                "absolute": 484,
+                "relative": 7.88
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "libraries/Wire/examples/digital_potentiometer",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 3766,
+                "relative": 7.74
+              },
+              "previous": {
+                "absolute": 3766,
+                "relative": 7.74
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 330,
+                "relative": 5.37
+              },
+              "previous": {
+                "absolute": 330,
+                "relative": 5.37
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "libraries/Wire/examples/master_reader",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 5082,
+                "relative": 10.45
+              },
+              "previous": {
+                "absolute": 5082,
+                "relative": 10.45
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 482,
+                "relative": 7.85
+              },
+              "previous": {
+                "absolute": 482,
+                "relative": 7.85
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "libraries/Wire/examples/master_writer",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 3768,
+                "relative": 7.75
+              },
+              "previous": {
+                "absolute": 3768,
+                "relative": 7.75
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 330,
+                "relative": 5.37
+              },
+              "previous": {
+                "absolute": 330,
+                "relative": 5.37
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "libraries/Wire/examples/slave_receiver",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 5319,
+                "relative": 10.94
+              },
+              "previous": {
+                "absolute": 5319,
+                "relative": 10.94
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 482,
+                "relative": 7.85
+              },
+              "previous": {
+                "absolute": 482,
+                "relative": 7.85
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "libraries/Wire/examples/slave_sender",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 3743,
+                "relative": 7.7
+              },
+              "previous": {
+                "absolute": 3743,
+                "relative": 7.7
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 329,
+                "relative": 5.35
+              },
+              "previous": {
+                "absolute": 329,
+                "relative": 5.35
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "libraries/SPI/examples/BarometricPressureSensor",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 8394,
+                "relative": 17.26
+              },
+              "previous": {
+                "absolute": 8394,
+                "relative": 17.26
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 259,
+                "relative": 4.22
+              },
+              "previous": {
+                "absolute": 259,
+                "relative": 4.22
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "libraries/SPI/examples/DigitalPotControl",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 3490,
+                "relative": 7.18
+              },
+              "previous": {
+                "absolute": 3490,
+                "relative": 7.18
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 96,
+                "relative": 1.56
+              },
+              "previous": {
+                "absolute": 96,
+                "relative": 1.56
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "libraries/SoftwareSerial/examples/SoftwareSerialExample",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 4629,
+                "relative": 9.52
+              },
+              "previous": {
+                "absolute": 4629,
+                "relative": 9.52
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 466,
+                "relative": 7.58
+              },
+              "previous": {
+                "absolute": 466,
+                "relative": 7.58
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "libraries/SoftwareSerial/examples/TwoPortReceive",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 4827,
+                "relative": 9.92
+              },
+              "previous": {
+                "absolute": 4827,
+                "relative": 9.92
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 497,
+                "relative": 8.09
+              },
+              "previous": {
+                "absolute": 497,
+                "relative": 8.09
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        }
+      ],
+      "sizes": [
+        {
+          "name": "flash",
+          "maximum": 48640,
+          "delta": {
+            "absolute": {
+              "minimum": 0,
+              "maximum": 0
+            },
+            "relative": {
+              "minimum": 0.0,
+              "maximum": 0.0
+            }
+          }
+        },
+        {
+          "name": "RAM for global variables",
+          "maximum": 6144,
+          "delta": {
+            "absolute": {
+              "minimum": 0,
+              "maximum": 0
+            },
+            "relative": {
+              "minimum": 0.0,
+              "maximum": 0.0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
