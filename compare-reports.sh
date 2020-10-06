@@ -20,6 +20,8 @@ if test -f $SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json; the
     rm $SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json
 fi
 
+find $SKETCHES_SOURCE_PATH -maxdepth 1
+
 echo "Merging the board-related json files from the last compilation into a single report"
 jq -s '.[0].boards=([.[].boards]|flatten)|.[0]' $SKETCHES_SOURCE_PATH/sketches-reports/*.json >> $SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json
 
