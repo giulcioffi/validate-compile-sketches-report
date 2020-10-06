@@ -64,6 +64,17 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
                 #increment the number of sketch failed
                 let SKETCH_FAILED=SKETCH_FAILED+1
               else
+                for file_name in sketches-reports/*.json; do # Whitespace-safe but not recursive.
+                  if [ $file_name == "sketches-reports/full-sketches-report.json" ]; then
+                    continue
+                  else
+                    single_file_board_name=$(cat $file_name | jq ".boards[0].board")
+                    if [ "$board_name" == "$single_file_board_name" ]; then
+                      jq ".boards[0].sketches[$INDEX_J].compilation_success = "true"" $file_name >> sketches-reports/modified-report.json
+                      mv sketches-reports/modified-report.json $file_name
+                    fi
+                  fi
+                done
                 echo "Ignore compilation failure: compilation of sketch $database_sketch_name on board $database_board_name has EXPECTED result $database_compilation_status"
               fi
               break
