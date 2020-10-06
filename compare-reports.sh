@@ -8,6 +8,13 @@ INDEX_J=0
 INDEX_K=0
 INDEX_L=0
 
+if test -f sketches-reports/full-sketches-report.json; then
+    rm sketches-reports/full-sketches-report.json
+fi
+
+echo "Merging the board-related json files from the last compilation into a single report"
+jq -s '.[0].boards=([.[].boards]|flatten)|.[0]' sketches-reports/*.json >> sketches-reports/full-sketches-report.json
+
 echo "Computing the total number of boards from full-sketches-report.json"
 num_boards_sketches_report=$(jq '.boards | length' sketches-reports/full-sketches-report.json)
 echo $num_boards_sketches_report
