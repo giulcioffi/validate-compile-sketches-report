@@ -1,366 +1,24 @@
 {
-  "commit_hash": "b6fe0204745e6a388973f552e992f8f9b8461710",
-  "commit_url": "https://github.com/giulcioffi/ArduinoCore-megaavr/commit/b6fe0204745e6a388973f552e992f8f9b8461710",
+  "commit_hash": "a9061aab996ffc48009603422d218f8f65ae46a2",
+  "commit_url": "https://github.com/giulcioffi/ArduinoCore-megaavr/commit/a9061aab996ffc48009603422d218f8f65ae46a2",
   "boards": [
     {
       "board": "arduino:megaavr:uno2018:mode=on",
       "sketches": [
         {
-          "name": "libraries/Wire/examples/SFRRanger_reader",
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/AdvancedChatServer",
           "compilation_success": true,
           "sizes": [
             {
               "name": "flash",
               "maximum": 48640,
               "current": {
-                "absolute": 5433,
-                "relative": 11.17
+                "absolute": 16832,
+                "relative": 34.61
               },
               "previous": {
-                "absolute": 5433,
-                "relative": 11.17
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            },
-            {
-              "name": "RAM for global variables",
-              "maximum": 6144,
-              "current": {
-                "absolute": 484,
-                "relative": 7.88
-              },
-              "previous": {
-                "absolute": 484,
-                "relative": 7.88
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            }
-          ]
-        },
-        {
-          "name": "libraries/Wire/examples/digital_potentiometer",
-          "compilation_success": true,
-          "sizes": [
-            {
-              "name": "flash",
-              "maximum": 48640,
-              "current": {
-                "absolute": 3766,
-                "relative": 7.74
-              },
-              "previous": {
-                "absolute": 3766,
-                "relative": 7.74
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            },
-            {
-              "name": "RAM for global variables",
-              "maximum": 6144,
-              "current": {
-                "absolute": 330,
-                "relative": 5.37
-              },
-              "previous": {
-                "absolute": 330,
-                "relative": 5.37
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            }
-          ]
-        },
-        {
-          "name": "libraries/Wire/examples/master_reader",
-          "compilation_success": true,
-          "sizes": [
-            {
-              "name": "flash",
-              "maximum": 48640,
-              "current": {
-                "absolute": 5082,
-                "relative": 10.45
-              },
-              "previous": {
-                "absolute": 5082,
-                "relative": 10.45
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            },
-            {
-              "name": "RAM for global variables",
-              "maximum": 6144,
-              "current": {
-                "absolute": 482,
-                "relative": 7.85
-              },
-              "previous": {
-                "absolute": 482,
-                "relative": 7.85
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            }
-          ]
-        },
-        {
-          "name": "libraries/Wire/examples/master_writer",
-          "compilation_success": true,
-          "sizes": [
-            {
-              "name": "flash",
-              "maximum": 48640,
-              "current": {
-                "absolute": 3768,
-                "relative": 7.75
-              },
-              "previous": {
-                "absolute": 3768,
-                "relative": 7.75
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            },
-            {
-              "name": "RAM for global variables",
-              "maximum": 6144,
-              "current": {
-                "absolute": 330,
-                "relative": 5.37
-              },
-              "previous": {
-                "absolute": 330,
-                "relative": 5.37
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            }
-          ]
-        },
-        {
-          "name": "libraries/Wire/examples/slave_receiver",
-          "compilation_success": true,
-          "sizes": [
-            {
-              "name": "flash",
-              "maximum": 48640,
-              "current": {
-                "absolute": 5319,
-                "relative": 10.94
-              },
-              "previous": {
-                "absolute": 5319,
-                "relative": 10.94
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            },
-            {
-              "name": "RAM for global variables",
-              "maximum": 6144,
-              "current": {
-                "absolute": 482,
-                "relative": 7.85
-              },
-              "previous": {
-                "absolute": 482,
-                "relative": 7.85
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            }
-          ]
-        },
-        {
-          "name": "libraries/Wire/examples/slave_sender",
-          "compilation_success": true,
-          "sizes": [
-            {
-              "name": "flash",
-              "maximum": 48640,
-              "current": {
-                "absolute": 3743,
-                "relative": 7.7
-              },
-              "previous": {
-                "absolute": 3743,
-                "relative": 7.7
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            },
-            {
-              "name": "RAM for global variables",
-              "maximum": 6144,
-              "current": {
-                "absolute": 329,
-                "relative": 5.35
-              },
-              "previous": {
-                "absolute": 329,
-                "relative": 5.35
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            }
-          ]
-        },
-        {
-          "name": "libraries/SPI/examples/BarometricPressureSensor",
-          "compilation_success": true,
-          "sizes": [
-            {
-              "name": "flash",
-              "maximum": 48640,
-              "current": {
-                "absolute": 8394,
-                "relative": 17.26
-              },
-              "previous": {
-                "absolute": 8394,
-                "relative": 17.26
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            },
-            {
-              "name": "RAM for global variables",
-              "maximum": 6144,
-              "current": {
-                "absolute": 259,
-                "relative": 4.22
-              },
-              "previous": {
-                "absolute": 259,
-                "relative": 4.22
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            }
-          ]
-        },
-        {
-          "name": "libraries/SPI/examples/DigitalPotControl",
-          "compilation_success": true,
-          "sizes": [
-            {
-              "name": "flash",
-              "maximum": 48640,
-              "current": {
-                "absolute": 3490,
-                "relative": 7.18
-              },
-              "previous": {
-                "absolute": 3490,
-                "relative": 7.18
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            },
-            {
-              "name": "RAM for global variables",
-              "maximum": 6144,
-              "current": {
-                "absolute": 96,
-                "relative": 1.56
-              },
-              "previous": {
-                "absolute": 96,
-                "relative": 1.56
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            }
-          ]
-        },
-        {
-          "name": "libraries/SoftwareSerial/examples/SoftwareSerialExample",
-          "compilation_success": true,
-          "sizes": [
-            {
-              "name": "flash",
-              "maximum": 48640,
-              "current": {
-                "absolute": 4629,
-                "relative": 9.52
-              },
-              "previous": {
-                "absolute": 4629,
-                "relative": 9.52
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            },
-            {
-              "name": "RAM for global variables",
-              "maximum": 6144,
-              "current": {
-                "absolute": 466,
-                "relative": 7.58
-              },
-              "previous": {
-                "absolute": 466,
-                "relative": 7.58
-              },
-              "delta": {
-                "absolute": 0,
-                "relative": 0.0
-              }
-            }
-          ]
-        },
-        {
-          "name": "libraries/SoftwareSerial/examples/TwoPortReceive",
-          "compilation_success": true,
-          "sizes": [
-            {
-              "name": "flash",
-              "maximum": 48640,
-              "current": {
-                "absolute": 4827,
-                "relative": 9.92
-              },
-              "previous": {
-                "absolute": 4827,
-                "relative": 9.92
+                "absolute": 16832,
+                "relative": 34.61
               },
               "delta": {
                 "absolute": 0,
@@ -381,6 +39,842 @@
               "delta": {
                 "absolute": 0,
                 "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/BarometricPressureWebServer",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 20105,
+                "relative": 41.33
+              },
+              "previous": {
+                "absolute": 20105,
+                "relative": 41.33
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 381,
+                "relative": 6.2
+              },
+              "previous": {
+                "absolute": 381,
+                "relative": 6.2
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/ChatServer",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 16072,
+                "relative": 33.04
+              },
+              "previous": {
+                "absolute": 16072,
+                "relative": 33.04
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 378,
+                "relative": 6.15
+              },
+              "previous": {
+                "absolute": 378,
+                "relative": 6.15
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/DhcpAddressPrinter",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 16047,
+                "relative": 32.99
+              },
+              "previous": {
+                "absolute": 16047,
+                "relative": 32.99
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 439,
+                "relative": 7.15
+              },
+              "previous": {
+                "absolute": 439,
+                "relative": 7.15
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/DhcpChatServer",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 19793,
+                "relative": 40.69
+              },
+              "previous": {
+                "absolute": 19793,
+                "relative": 40.69
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 486,
+                "relative": 7.91
+              },
+              "previous": {
+                "absolute": 486,
+                "relative": 7.91
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/LinkStatus",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 6552,
+                "relative": 13.47
+              },
+              "previous": {
+                "absolute": 6552,
+                "relative": 13.47
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 261,
+                "relative": 4.25
+              },
+              "previous": {
+                "absolute": 261,
+                "relative": 4.25
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/TelnetClient",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 15252,
+                "relative": 31.36
+              },
+              "previous": {
+                "absolute": 15252,
+                "relative": 31.36
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 358,
+                "relative": 5.83
+              },
+              "previous": {
+                "absolute": 358,
+                "relative": 5.83
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/UDPSendReceiveString",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 12848,
+                "relative": 26.41
+              },
+              "previous": {
+                "absolute": 12848,
+                "relative": 26.41
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 402,
+                "relative": 6.54
+              },
+              "previous": {
+                "absolute": 402,
+                "relative": 6.54
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/UdpNtpClient",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 16250,
+                "relative": 33.41
+              },
+              "previous": {
+                "absolute": 16250,
+                "relative": 33.41
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 514,
+                "relative": 8.37
+              },
+              "previous": {
+                "absolute": 514,
+                "relative": 8.37
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/WebClient",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 20617,
+                "relative": 42.39
+              },
+              "previous": {
+                "absolute": 20617,
+                "relative": 42.39
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 494,
+                "relative": 8.04
+              },
+              "previous": {
+                "absolute": 494,
+                "relative": 8.04
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/WebClientRepeating",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 18626,
+                "relative": 38.29
+              },
+              "previous": {
+                "absolute": 18626,
+                "relative": 38.29
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 486,
+                "relative": 7.91
+              },
+              "previous": {
+                "absolute": 486,
+                "relative": 7.91
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/Ethernet/examples/WebServer",
+          "compilation_success": true,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": 48640,
+              "current": {
+                "absolute": 16541,
+                "relative": 34.01
+              },
+              "previous": {
+                "absolute": 16541,
+                "relative": 34.01
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": 6144,
+              "current": {
+                "absolute": 359,
+                "relative": 5.84
+              },
+              "previous": {
+                "absolute": 359,
+                "relative": 5.84
+              },
+              "delta": {
+                "absolute": 0,
+                "relative": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/AP_SimpleWebServer",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/CheckWifi101FirmwareVersion",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/ConnectNoEncryption",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/ConnectWithWEP",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/ConnectWithWPA",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/FirmwareUpdater",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/MDNS_WiFiWebServer",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/Provisioning_WiFiWebServer",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/ScanNetworks",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/ScanNetworksAdvanced",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/SimpleWebServerWiFi",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/WiFiChatServer",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/WiFiPing",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/WiFiSSLClient",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/WiFiUdpNtpClient",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/WiFiUdpSendReceiveString",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/WiFiWebClient",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/WiFiWebClientRepeating",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "/github/home/Arduino/libraries/WiFi101/examples/WiFiWebServer",
+          "compilation_success": false,
+          "sizes": [
+            {
+              "name": "flash",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
+              }
+            },
+            {
+              "name": "RAM for global variables",
+              "maximum": "N/A",
+              "current": {
+                "absolute": "N/A",
+                "relative": "N/A"
               }
             }
           ]
