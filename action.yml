@@ -16,5 +16,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ github.action_path }}/compare-reports.sh
+    - run: ${{ github.action_path }}/compare-reports.sh ${{ inputs.sketches-reports-source }}
       shell: bash
