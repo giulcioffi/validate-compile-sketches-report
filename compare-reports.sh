@@ -3,6 +3,7 @@
 SKETCH_FAILED=0
 FOUND_BOARD_IN_DATABASE=0
 FOUND_SKETCH_IN_DATABASE=0
+ERROR_SKETCH_NOT_IN_DATABASE=0
 INDEX_I=0
 INDEX_J=0
 INDEX_K=0
@@ -98,9 +99,7 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
           let INDEX_L=0
 
           #check if the sketch has been found or not
-          if [ $FOUND_SKETCH_IN_DATABASE == 0 ]; then
-            echo "ERROR: Sketch $database_sketch_name NOT FOUND!"
-          else
+          if [ $FOUND_SKETCH_IN_DATABASE == 1 ]; then
             break
           fi
 
@@ -113,9 +112,10 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
       done
       let INDEX_K=0
 
-      #check if the board has been found or not
-      if [ $FOUND_BOARD_IN_DATABASE == 0 ]; then
-        echo "ERROR: Board $database_board_name NOT FOUND!"
+      #check if the sketch has been found or not
+      if [ $FOUND_SKETCH_IN_DATABASE == 0 ]; then
+        echo "The expected compilation result of sketch $name_failed_sketch on board $board_name is NOT present in the database!"
+        let ERROR_SKETCH_NOT_IN_DATABASE=1
       fi
 
     fi
@@ -127,6 +127,9 @@ done
 
 if [ $SKETCH_FAILED -ge 1 ]; then
   echo "$SKETCH_FAILED SKETCHES FAILED!"
+  exit 1
+elif [ $ERROR_SKETCH_NOT_IN_DATABASE == 1 ]; then
+  echo "One or more sketches that failed are not present in the database."
   exit 1
 else
   echo "Failure check completed successfully!"
