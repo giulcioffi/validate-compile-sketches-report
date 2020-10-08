@@ -20,13 +20,21 @@ echo "Sketches reports source path: $SKETCHES_SOURCE_PATH"
 DATABASE_SOURCE_PATH=$2
 echo "Expected results database source path: $DATABASE_SOURCE_PATH"
 
+if [ -d "$SKETCHES_SOURCE_PATH" ]; then
+  # The sketches reports input directory exists
+  echo "Sketches reports found in ${SKETCHES_SOURCE_PATH}:"
+  find $SKETCHES_SOURCE_PATH -maxdepth 1
+else
+  # The sketches reports input directory DOESN'T exists
+  echo "Sketches reports directory ${SKETCHES_SOURCE_PATH} DOESN'T exist!"
+  exit 1
+fi
+
 FULL_SKETCHES_REPORT_PATH="/tmp/full-sketches-report.json"
 
 if test -f "$FULL_SKETCHES_REPORT_PATH"; then
     rm "$FULL_SKETCHES_REPORT_PATH"
 fi
-
-find $SKETCHES_SOURCE_PATH -maxdepth 1
 
 echo "Merging the board-related json files from the last compilation into a single report"
 jq -s '.[0].boards=([.[].boards]|flatten)|.[0]' $SKETCHES_SOURCE_PATH/sketches-reports/*.json >> "$FULL_SKETCHES_REPORT_PATH"
