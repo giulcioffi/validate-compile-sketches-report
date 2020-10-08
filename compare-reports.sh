@@ -8,6 +8,8 @@ INDEX_I=0
 INDEX_J=0
 INDEX_K=0
 INDEX_L=0
+TOTAL_SKETCH_FAILED=0
+TATAL_SKETCH_UNDEFINED=0
 SKETCH_FAILED=0
 SKETCH_PASSED=0
 SKETCH_UNDEFINED=0
@@ -120,10 +122,9 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
                     jq ".boards[0].sketches[$INDEX_J].validation_result = \"fail\"" $file_name >> $SKETCHES_SOURCE_PATH/modified-report.json
                     mv $SKETCHES_SOURCE_PATH/modified-report.json $file_name
                     let SKETCH_FAILED+=1
+                    let TOTAL_SKETCH_FAILED+=1
 
                     echo "COMPILATION FAILURE: compilation of sketch $database_sketch_name on board $database_board_name has EXPECTED result $database_compilation_status"
-                    #increment the number of sketch failed
-                    let SKETCH_FAILED=SKETCH_FAILED+1
                     break
                   elif [ "$compilation_status" == "true" ]; then
                     # update the validation_result key with result "pass"
@@ -192,7 +193,7 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
     #check if the sketch has been found or not
     if [ $FOUND_SKETCH_IN_DATABASE == 0 ]; then
       echo "The expected compilation result of sketch $name_failed_sketch on board $board_name is NOT present in the database!"
-      let SKETCH_NOT_IN_DATABASE+1
+      let SKETCH_NOT_IN_DATABASE+=1
       let SKETCH_UNDEFINED+=1
     fi
 
@@ -269,9 +270,9 @@ else
   fi
 fi
 
-if [ $SKETCH_FAILED -ge 1 ]; then
+if [ $TOTAL_SKETCH_FAILED -ge 1 ]; then
   echo "" 
-  echo "Total number of sketches that failed the validation against the database: $SKETCH_FAILED"
+  echo "Total number of sketches that failed the validation against the database: $TOTAL_SKETCH_FAILED"
   exit 1
 elif [ $SKETCH_NOT_IN_DATABASE -ge 1 ]; then
   echo "$SKETCH_NOT_IN_DATABASE sketches that failed are not present in the database."
