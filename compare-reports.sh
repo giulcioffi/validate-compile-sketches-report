@@ -17,17 +17,19 @@ fi
 SKETCHES_SOURCE_PATH=$1
 echo "$SKETCHES_SOURCE_PATH"
 
-if test -f $SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json; then
-    rm $SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json
+FULL_SKETCHES_REPORT_PATH="/tmp/full-sketches-report.json"
+
+if test -f "$FULL_SKETCHES_REPORT_PATH"; then
+    rm "$FULL_SKETCHES_REPORT_PATH"
 fi
 
 find $SKETCHES_SOURCE_PATH -maxdepth 1
 
 echo "Merging the board-related json files from the last compilation into a single report"
-jq -s '.[0].boards=([.[].boards]|flatten)|.[0]' $SKETCHES_SOURCE_PATH/sketches-reports/*.json >> $SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json
+jq -s '.[0].boards=([.[].boards]|flatten)|.[0]' $SKETCHES_SOURCE_PATH/sketches-reports/*.json >> "$FULL_SKETCHES_REPORT_PATH"
 
 echo "Computing the total number of boards from full-sketches-report.json"
-num_boards_sketches_report=$(jq '.boards | length' $SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json)
+num_boards_sketches_report=$(jq '.boards | length' "$FULL_SKETCHES_REPORT_PATH")
 echo $num_boards_sketches_report
 
 echo "Computing the total number of boards from full-database-report.json"
@@ -38,21 +40,21 @@ echo $num_boards_database_report
 #First iteration over the number of boards used in the current compilation
 while [ $INDEX_I -lt $num_boards_sketches_report ]; do
   #save the current board name
-  board_name=$(cat $SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json | jq ".boards[$INDEX_I].board")
+  board_name=$(cat "$FULL_SKETCHES_REPORT_PATH" | jq ".boards[$INDEX_I].board")
   echo "Current board name: $board_name"
   #compute and save the number of sketches compiled for that board
-  num_sketches_per_board=$(jq ".boards[$INDEX_I].sketches | length" $SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json)
+  num_sketches_per_board=$(jq ".boards[$INDEX_I].sketches | length" "$FULL_SKETCHES_REPORT_PATH")
   echo "Number of sketches for current board: $num_sketches_per_board"
 
   #iterate over all the sketches of that board and check which compilations failed
   while [ $INDEX_J -lt $num_sketches_per_board ]; do
-    compilation_status=$(cat $SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json | jq ".boards[$INDEX_I].sketches[$INDEX_J].compilation_success")
+    compilation_status=$(cat "$FULL_SKETCHES_REPORT_PATH" | jq ".boards[$INDEX_I].sketches[$INDEX_J].compilation_success")
     if [ $compilation_status == "false" ]; then
       #reset the flags that checks if a board/sketch has been found in the database
       FOUND_BOARD_IN_DATABASE=0
       FOUND_SKETCH_IN_DATABASE=0
       #save the sketch name
-      name_failed_sketch=$(cat $SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json | jq ".boards[$INDEX_I].sketches[$INDEX_J].name")
+      name_failed_sketch=$(cat "$FULL_SKETCHES_REPORT_PATH" | jq ".boards[$INDEX_I].sketches[$INDEX_J].name")
 
       #iterate over the available boards in the report util the current board is found
       while [ $INDEX_K -lt $num_boards_database_report ]; do
@@ -76,7 +78,7 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
                 let SKETCH_FAILED=SKETCH_FAILED+1
               else
                 for file_name in $SKETCHES_SOURCE_PATH/sketches-reports/*.json; do # Whitespace-safe but not recursive.
-                  if [ $file_name == "$SKETCHES_SOURCE_PATH/sketches-reports/full-sketches-report.json" ]; then
+                  if [ $file_name == ""$FULL_SKETCHES_REPORT_PATH"" ]; then
                     continue
                   else
                     single_file_board_name=$(cat $file_name | jq ".boards[0].board")
