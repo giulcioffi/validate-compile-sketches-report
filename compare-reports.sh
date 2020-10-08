@@ -62,9 +62,15 @@ for file_name in $SKETCHES_SOURCE_PATH/*.json; do # Whitespace-safe but not recu
   mv $SKETCHES_SOURCE_PATH/modified-report.json $file_name
 done
 
+let REPORT_FAILED=0
+let REPORT_PASSED=0
+let REPORT_UNDEFINED=0
 
 #First iteration over the number of boards used in the current compilation
 while [ $INDEX_I -lt $num_boards_sketches_report ]; do
+  let SKETCH_FAILED=0
+  let SKETCH_PASSED=0
+  let SKETCH_UNDEFINED=0
   #save the current board name
   board_name=$(cat "$FULL_SKETCHES_REPORT_PATH" | jq ".boards[$INDEX_I].board")
   echo "Current board name: $board_name"
@@ -113,6 +119,7 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
                     # update the validation_result key with result "fail"
                     jq ".boards[0].sketches[$INDEX_J].validation_result = \"fail\"" $file_name >> $SKETCHES_SOURCE_PATH/modified-report.json
                     mv $SKETCHES_SOURCE_PATH/modified-report.json $file_name
+                    let SKETCH_FAILED+=1
 
                     echo "COMPILATION FAILURE: compilation of sketch $database_sketch_name on board $database_board_name has EXPECTED result $database_compilation_status"
                     #increment the number of sketch failed
@@ -122,6 +129,7 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
                     # update the validation_result key with result "pass"
                     jq ".boards[0].sketches[$INDEX_J].validation_result = \"pass\"" $file_name >> $SKETCHES_SOURCE_PATH/modified-report.json
                     mv $SKETCHES_SOURCE_PATH/modified-report.json $file_name
+                    let SKETCH_PASSED+=1
                     break
                   else
                     echo "ERROR: invalid compilation_status value $compilation_status"
@@ -132,6 +140,7 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
                     # update the validation_result key with result "pass"
                     jq ".boards[0].sketches[$INDEX_J] += {"validation_result":\"pass\"}" $file_name >> $SKETCHES_SOURCE_PATH/modified-report.json
                     mv $SKETCHES_SOURCE_PATH/modified-report.json $file_name
+                    let SKETCH_PASSED+=1
 
                     echo "Ignore compilation failure: compilation of sketch $database_sketch_name on board $database_board_name has EXPECTED result $database_compilation_status"
                     break
@@ -139,6 +148,7 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
                     # update the validation_result key with result "pass", but print ERROR message
                     jq ".boards[0].sketches[$INDEX_J].validation_result = \"pass\"" $file_name >> $SKETCHES_SOURCE_PATH/modified-report.json
                     mv $SKETCHES_SOURCE_PATH/modified-report.json $file_name
+                    let SKETCH_PASSED+=1
 
                     echo "ERROR: According to the database, compilation of sketch $filename with board $board_name should have failed!"
                     break
@@ -183,53 +193,17 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
     if [ $FOUND_SKETCH_IN_DATABASE == 0 ]; then
       echo "The expected compilation result of sketch $name_failed_sketch on board $board_name is NOT present in the database!"
       let SKETCH_NOT_IN_DATABASE+1
+      let SKETCH_UNDEFINED+=1
     fi
 
     let INDEX_J=INDEX_J+1
   done
 
-  let INDEX_J=0
-  let INDEX_I=INDEX_I+1
-
-done
-
-echo "Sketches compilation results validation against database completed"
-
-let INDEX_I=0
-let REPORT_FAILED=0
-let REPORT_PASSED=0
-let REPORT_UNDEFINED=0
-
-for file_name in $SKETCHES_SOURCE_PATH/*.json; do
-  let SKETCH_FAILED=0
-  let SKETCH_PASSED=0
-  let SKETCH_UNDEFINED=0
-
-  # add validation_result key at board level per each sketches report and set its initial value to pass
-  jq '.boards[0] += {"validation_result":"undefined"}' $file_name >> $SKETCHES_SOURCE_PATH/modified-report.json
-  mv $SKETCHES_SOURCE_PATH/modified-report.json $file_name
-
-  num_sketches_per_board=$(jq ".boards[0].sketches | length" "$file_name")
-  echo "Num sketches per board = $num_sketches_per_board"
-
-  #iterate over all the sketches of that board and check which compilations failed
-  while [ $INDEX_I -lt $num_sketches_per_board ]; do
-    sketch_validation_result=$(cat "$file_name" | jq ".boards[0].sketches[$INDEX_I].validation_result")
-
-    if [ $sketch_validation_result == \"fail\" ]; then
-      let SKETCH_FAILED+=1
-
-    elif [ $sketch_validation_result == \"undefined\" ]; then
-      let SKETCH_UNDEFINED+=1
-
-    elif [ $sketch_validation_result == \"pass\" ]; then
-      let SKETCH_PASSED+=1
-
-    else
-      echo "ERROR: Invalid sketch_validation_result $sketch_validation_result in $file_name"
-      exit 1
+  for file_name in $SKETCHES_SOURCE_PATH/*.json; do
+    single_file_board_name=$(cat $file_name | jq ".boards[0].board")
+    if [ "$board_name" == "$single_file_board_name" ]; then
+      break
     fi
-
   done
 
   echo "Validation report of $file_name:"
@@ -258,6 +232,9 @@ for file_name in $SKETCHES_SOURCE_PATH/*.json; do
     fi
   fi
 
+  let INDEX_J=0
+  let INDEX_I=INDEX_I+1
+
 done
 
 echo "Updating validation results for $FULL_SKETCHES_REPORT_PATH..."
@@ -280,14 +257,14 @@ if [ $REPORT_UNDEFINED -ge 1 ]; then
   mv $SKETCHES_SOURCE_PATH/modified-report.json $FULL_SKETCHES_REPORT_PATH
 
 else
-  if [ $REPORT_PASSED == $num_sketches_per_board ]; then
+  if [ $REPORT_PASSED == $num_boards_sketches_report ]; then
     echo "Global validation status of $FULL_SKETCHES_REPORT_PATH is PASS"
     jq '. += {"validation_result":"pass"}' $FULL_SKETCHES_REPORT_PATH >> $SKETCHES_SOURCE_PATH/modified-report.json
     mv $SKETCHES_SOURCE_PATH/modified-report.json $FULL_SKETCHES_REPORT_PATH
 
   else
     echo "Global validation status of $FULL_SKETCHES_REPORT_PATH is FAIL"
-    jq '.boards[0] += {"validation_result":"fail"}' $FULL_SKETCHES_REPORT_PATH >> $SKETCHES_SOURCE_PATH/modified-report.json
+    jq '. += {"validation_result":"fail"}' $FULL_SKETCHES_REPORT_PATH >> $SKETCHES_SOURCE_PATH/modified-report.json
     mv $SKETCHES_SOURCE_PATH/modified-report.json $FULL_SKETCHES_REPORT_PATH
   fi
 fi
