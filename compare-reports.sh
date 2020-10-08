@@ -9,13 +9,16 @@ INDEX_J=0
 INDEX_K=0
 INDEX_L=0
 
-if [ "$#" -ne 1 ]; then
-  echo "Missing SKETCHES_SOURCE_PATH"
+if [ "$#" -ne 2 ]; then
+  echo "Usage: compare-reports.sh SKETCHES-REPORT-PATH EXPECTED-RESULTS-DATABASE"
   exit 1
 fi
 
 SKETCHES_SOURCE_PATH=$1
-echo "$SKETCHES_SOURCE_PATH"
+echo "Sketches reports source path: $SKETCHES_SOURCE_PATH"
+
+DATABASE_SOURCE_PATH=$2
+echo "Expected results database source path: $DATABASE_SOURCE_PATH"
 
 FULL_SKETCHES_REPORT_PATH="/tmp/full-sketches-report.json"
 
@@ -33,7 +36,7 @@ num_boards_sketches_report=$(jq '.boards | length' "$FULL_SKETCHES_REPORT_PATH")
 echo $num_boards_sketches_report
 
 echo "Computing the total number of boards from full-database-report.json"
-num_boards_database_report=$(jq '.boards | length' $SKETCHES_SOURCE_PATH/database-reports/full-database-report.json)
+num_boards_database_report=$(jq '.boards | length' $SKETCHES_SOURCE_PATH/full-database-report.json)
 echo $num_boards_database_report
 
 
@@ -58,19 +61,19 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
 
       #iterate over the available boards in the report util the current board is found
       while [ $INDEX_K -lt $num_boards_database_report ]; do
-        database_board_name=$(cat $SKETCHES_SOURCE_PATH/database-reports/full-database-report.json | jq ".boards[$INDEX_K].board")
+        database_board_name=$(cat $SKETCHES_SOURCE_PATH/full-database-report.json | jq ".boards[$INDEX_K].board")
         if [ $database_board_name == $board_name ]; then
           FOUND_BOARD_IN_DATABASE=1
           #compute the number of available sketches in the database for the current board
-          num_database_sketches_per_board=$(jq ".boards[$INDEX_K].sketches | length" $SKETCHES_SOURCE_PATH/database-reports/full-database-report.json)
+          num_database_sketches_per_board=$(jq ".boards[$INDEX_K].sketches | length" $SKETCHES_SOURCE_PATH/full-database-report.json)
 
           #iterate over all the database sketches of that board until the one that failed is found
           while [ $INDEX_L -lt $num_database_sketches_per_board ]; do
-            database_sketch_name=$(cat $SKETCHES_SOURCE_PATH/database-reports/full-database-report.json | jq ".boards[$INDEX_K].sketches[$INDEX_L].name")
+            database_sketch_name=$(cat $SKETCHES_SOURCE_PATH/full-database-report.json | jq ".boards[$INDEX_K].sketches[$INDEX_L].name")
             if [ "$database_sketch_name" == "$name_failed_sketch" ]; then
               #set the related flag
               FOUND_SKETCH_IN_DATABASE=1
-              database_compilation_status=$(cat $SKETCHES_SOURCE_PATH/database-reports/full-database-report.json | jq ".boards[$INDEX_K].sketches[$INDEX_L].compilation_success")
+              database_compilation_status=$(cat $SKETCHES_SOURCE_PATH/full-database-report.json | jq ".boards[$INDEX_K].sketches[$INDEX_L].compilation_success")
               #check the expected results
               if [ "$database_compilation_status" == "true" ]; then
                 echo "COMPILATION FAILURE: compilation of sketch $database_sketch_name on board $database_board_name has EXPECTED result $database_compilation_status"
