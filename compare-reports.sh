@@ -193,8 +193,10 @@ while [ $INDEX_I -lt $num_boards_sketches_report ]; do
     #check if the sketch has been found or not
     if [ $FOUND_SKETCH_IN_DATABASE == 0 ]; then
       echo "The expected compilation result of sketch $name_failed_sketch on board $board_name is NOT present in the database!"
-      let SKETCH_NOT_IN_DATABASE+=1
       let SKETCH_UNDEFINED+=1
+      if [ "$compilation_status" == "false" ]; then
+        let SKETCH_NOT_IN_DATABASE+=1
+      fi
     fi
 
     let INDEX_J=INDEX_J+1
